@@ -14,7 +14,7 @@ def get_link_extension(link):
 def resize_picture(path):
     image = Image.open(path)
     image.thumbnail((1080, 1080))
-    image.convert('RGB').save(f'{path.split(".")[0]}.jpg')
+    image.convert('RGB').save(f'{os.path.splitext(path)[0]}.jpg')
     if get_link_extension(path) != '.jpg':
         os.remove(path)
 
