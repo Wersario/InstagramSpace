@@ -17,4 +17,3 @@ for number, photo_path in enumerate(listdir('images')):
 
 for item in os.listdir('images'):
     os.remove(f'images/{item}')
-hi
