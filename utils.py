@@ -6,6 +6,10 @@ from PIL import Image
 from urllib.parse import urlparse
 
 
+def create_directory(dir_name):
+    os.makedirs(dir_name, exist_ok=True)
+
+
 def get_link_extension(link):
     separated_link = urlparse(link).path.split('.')
     return '.' + separated_link[-1]
@@ -19,8 +23,8 @@ def resize_picture(path):
         os.remove(path)
 
 
-def download_image(url, path):
-    os.makedirs("images", exist_ok=True)
+def download_image(url, path, dir_name):
+    create_directory(dir_name)
     response = requests.get(url, verify=False)
     response.raise_for_status()
     with open(path, "wb") as file:
