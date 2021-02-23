@@ -12,7 +12,7 @@ def fetch_hubble_id_photo(image_id, number, dir_name):
     response = requests.get(url, verify=False)
     response.raise_for_status()
     image = response.json()['image_files'][-1]
-    download_image(f"https:{image['file_url']}", f"{dir_name}/hubble{image_id}_{number}{get_link_extension(image['file_url'])}")
+    download_image(f"https:{image['file_url']}", f"{dir_name}/hubble{image_id}_{number}{get_link_extension(image['file_url'])}", dir_name)
     resize_picture(f"{dir_name}/hubble{image_id}_{number}{get_link_extension(image['file_url'])}")
 
 
