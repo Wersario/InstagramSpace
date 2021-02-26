@@ -7,7 +7,6 @@ from utils import resize_picture
 
 
 def fetch_hubble_id_photo(image_id, number, dir_name):
-    create_directory(dir_name)
     url = f'http://hubblesite.org/api/v3/image/{image_id}'
     response = requests.get(url, verify=False)
     response.raise_for_status()
