@@ -11,7 +11,7 @@ def create_directory(dir_name):
 
 
 def get_link_extension(link):
-    separated_link = urlparse(link).path.split('.')
+    separated_link = os.path.splitext(urlparse(link).path)[1]
     return '.' + separated_link[-1]
 
 
