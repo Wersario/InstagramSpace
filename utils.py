@@ -3,7 +3,6 @@ import os
 import requests
 
 from PIL import Image
-from urllib.parse import urlparse
 
 
 def save_picture_as_jpg(path):
@@ -14,13 +13,14 @@ def save_picture_as_jpg(path):
 
 
 def get_link_extension(link):
-    separated_link = os.path.splitext(urlparse(link).path)[1]
-    return '.' + separated_link[-1]
+    _, extension = os.path.splitext(link)
+    return extension
 
 
 def resize_picture(path):
     image = Image.open(path)
     image.thumbnail((1080, 1080))
+    image.save(path)
 
 
 def download_image(url, path):
