@@ -7,8 +7,7 @@ from instabot import Bot
 
 from fetch_hubble import fetch_hubble_collection
 from fetch_spacex import fetch_spacex_last_launch
-from utils import resize_picture
-from utils import save_picture_as_jpg
+from utils import resize_picture, save_picture_as_jpg
 
 
 if __name__ == '__main__':
