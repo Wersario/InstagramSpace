@@ -2,7 +2,14 @@ import os
 
 import requests
 
+import urllib.parse
 from PIL import Image
+
+
+def fix_link(url):
+    url_with_spaces = urllib.parse.unquote(url, encoding='utf-8', errors='replace')
+    fixed_link = urllib.parse.urlparse(url_with_spaces)[2]
+    return fixed_link
 
 
 def save_picture_as_jpg(path):
@@ -19,7 +26,9 @@ def get_link_extension(link):
 
 def resize_picture(path):
     image = Image.open(path)
-    image.thumbnail((1080, 1080))
+    width = 1800
+    length = 1800
+    image.thumbnail((width, length))
     image.save(path)
 
 
